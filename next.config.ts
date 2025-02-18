@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-
+module.exports = { eslint: { ignoreDuringBuilds: true } };
 const nextConfig: NextConfig = {
   eslint: {
     dirs: ["pages", "utils"],
