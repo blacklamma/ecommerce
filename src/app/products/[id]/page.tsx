@@ -36,7 +36,7 @@ export async function generateMetadata(
 export default async function ProductPage(
     { params }: ProductPageProps
 ) {
-    const { id } = await params;
+    const { id } = params;
     const product = await getProduct(id);
     return (
         <div className="flex flex-col lg:flex-row gap-4 lg:items-center">
