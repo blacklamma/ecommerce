@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 module.exports = {
   eslint: { ignoreDuringBuilds: true },
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "lh3.googleusercontent.com"],
   },
 };
 const nextConfig: NextConfig = {
