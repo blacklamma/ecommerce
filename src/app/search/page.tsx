@@ -3,16 +3,18 @@ import { prisma } from "@/src/lib/db/prisma";
 import { Metadata } from "next";
 
 interface SearchPageProps {
-    searchParams: { query: string }
+    searchParams: Promise<{ query: string }>
 }
 
-export function generateMetadata({ searchParams: { query } }: SearchPageProps): Metadata {
+export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
+    const { query } = await searchParams;
     return {
         title: `${query} - tEst-Commerce`
     }
 }
 
-export default async function SearchPage({ searchParams: { query } }: SearchPageProps) {
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+    const { query } = await searchParams;
     const products = await prisma.product.findMany({
         where: {
             OR: [
@@ -32,5 +34,4 @@ export default async function SearchPage({ searchParams: { query } }: SearchPage
             ))}
         </div>
     );
-
 }

@@ -2,7 +2,7 @@ import FormSubmitButton from "@/src/components/FormSubmitButton";
 import { prisma } from "@/src/lib/db/prisma";
 import { getServerSession } from "next-auth";
 import { redirect } from 'next/navigation';
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/src/lib/auth";
 
 export const metadata = {
     title: "Add Product - tEst-Commerce"
